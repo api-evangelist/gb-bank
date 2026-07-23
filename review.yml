@@ -1,0 +1,106 @@
+aid: gb-bank
+name: GB Bank
+review:
+  question: Does GB Bank operate a documented public developer portal or a live UK Open Banking (OBIE) API surface?
+  answer: false
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    GB Bank Limited is a small, FCA/PRA-authorised UK challenger bank (Financial
+    Services Register number 850286; Companies House 10702260) that secured its
+    full banking licence in 2022. Its public business is retail savings (fixed-rate
+    bonds, notice accounts, easy access) funding SME property development, buy-to-let
+    and bridging lending, delivered through an online savings portal and a GB Bank
+    mobile app. GB Bank is NOT one of the CMA9 mandated banks and is not a building
+    society (it is a privately backed limited-company bank).
+
+    No public API programme was found. Probes of developer.gbbank.co.uk (no DNS /
+    connection), api.gbbank.co.uk (HTTP 403, non-public host), and the OBIE Open Data
+    path shapes on www.gbbank.co.uk (/.well-known/open-banking/ 404,
+    /open-banking/v2.3/atms 404, /open-banking/v3.1/atms 404) returned nothing usable.
+    The site path www.gbbank.co.uk/developer (HTTP 200) is a "Developer Exit Loans"
+    lending product page, not an API developer portal. No Open Banking / OBIE
+    participant listing was found for GB Bank.
+
+    Because GB Bank's public products are savings and secured lending (savings deposits
+    generally fall outside PSD2 payment-account Open Banking scope), there is no
+    confirmed obligation or evidence of a published ASPSP API. The Open Banking API
+    families in apis.yml are therefore represented as the SHARED OBIE STANDARD an
+    FCA-authorised ASPSP conforms to, explicitly marked UNVERIFIED for GB Bank. No
+    gbbank.co.uk API host or base URL was invented; baseURL is left empty for every
+    Open Banking entry.
+  openBanking:
+    developerPortal: none-found
+    developerPortalCandidatesProbed:
+      - url: https://developer.gbbank.co.uk/
+        status: '000'
+        note: No connection / no DNS.
+      - url: https://api.gbbank.co.uk/
+        status: '403'
+        note: Host responds but is not a public/documented API surface.
+      - url: https://www.gbbank.co.uk/developer
+        status: '200'
+        note: A "Developer Exit Loans" bridging-finance product page, not an API portal.
+    openDataConfirmed: false
+    openDataProbes:
+      - url: https://www.gbbank.co.uk/.well-known/open-banking/
+        status: '404'
+      - url: https://www.gbbank.co.uk/open-banking/v2.3/atms
+        status: '404'
+      - url: https://www.gbbank.co.uk/open-banking/v3.1/atms
+        status: '404'
+    readWriteConformance: unverified
+    authModel: >-
+      Standard UK Open Banking Read/Write security is FAPI-grade OAuth2/OIDC with
+      mutual-TLS client authentication, PSD2 strong customer authentication (SCA),
+      and OBIE/eIDAS certificates. Not confirmed as offered by GB Bank - no developer
+      onboarding, client registration, or sandbox was found.
+  specProvenance:
+    - file: openapi/uk-open-banking-open-data-api-openapi.json
+      provenance: OBIE-standard
+      source: https://raw.githubusercontent.com/OpenBankingUK/opendata-api-spec-compiled/master/opendata-swagger.json
+      note: Shared OBIE Open Data API v1.3 (Swagger 2.0). NOT a GB Bank contract.
+    - file: openapi/uk-open-banking-account-info-api-openapi.yaml
+      provenance: OBIE-standard
+      source: https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/master/dist/openapi/account-info-openapi.yaml
+      note: Shared OBIE Account & Transaction Information (AIS) OpenAPI 3.0. NOT a GB Bank contract.
+    - file: openapi/uk-open-banking-payment-initiation-api-openapi.yaml
+      provenance: OBIE-standard
+      source: https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/master/dist/openapi/payment-initiation-openapi.yaml
+      note: Shared OBIE Payment Initiation (PIS) OpenAPI 3.0. NOT a GB Bank contract.
+    - file: openapi/uk-open-banking-confirmation-of-funds-api-openapi.yaml
+      provenance: OBIE-standard
+      source: https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/master/dist/openapi/confirmation-funds-openapi.yaml
+      note: Shared OBIE Confirmation of Funds (CBPII) OpenAPI 3.0. NOT a GB Bank contract.
+  transports:
+    - protocol: REST
+      scheme: https
+      note: OBIE Open Data is unauthenticated REST/JSON; OBIE Read/Write is FAPI-secured REST/JSON. Neither confirmed hosted by GB Bank.
+      documented: standard-only
+  sources:
+    - url: https://www.gbbank.co.uk/
+      type: Website
+      note: Title "Property Finance & Online Savings Accounts"; footer cites FCA regulation and FS Register number 850286.
+    - url: https://www.gbbank.co.uk/about-us/
+      type: About
+      note: Full banking licence 2022; offices Middlesbrough (2 Centre Square) and London (73 Brook Street).
+    - url: https://find-and-update.company-information.service.gov.uk/company/10702260
+      type: Registry
+      note: GB BANK LIMITED, Companies House number 10702260.
+    - url: https://github.com/OpenBankingUK/opendata-api-spec-compiled
+      type: Standard
+      note: Source of the shared OBIE Open Data API specification.
+    - url: https://github.com/OpenBankingUK/read-write-api-specs
+      type: Standard
+      note: Source of the shared OBIE Read/Write (AIS/PIS/CBPII) specifications.
+actions:
+  apisYmlUpdated: true
+  openapiHarvested: true
+  reason: |
+    Bootstrapped GB Bank identity from its public website and registries. No
+    proprietary GB Bank API or developer portal exists to harvest, so the four UK
+    Open Banking API families are represented as the shared OBIE standard, clearly
+    labeled unverified, with the standard OpenAPI/Swagger documents captured verbatim
+    into openapi/ and their OBIE provenance recorded. No fake host or base URL was
+    invented.
