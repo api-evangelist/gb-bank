@@ -1,0 +1,46 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/uk-open-banking-account-info-api-openapi.yaml, openapi/uk-open-banking-payment-initiation-api-openapi.yaml, openapi/uk-open-banking-confirmation-of-funds-api-openapi.yaml
+note: >-
+  Cross-cutting request/response semantics of the shared OBIE UK Open Banking
+  Read/Write standard captured in this repo. UNVERIFIED for GB Bank - these are the
+  conventions an FCA-authorised ASPSP conforming to OBIE FAPI would implement, not
+  observed GB Bank behaviour.
+authentication:
+  style: FAPI-grade OAuth2 / OpenID Connect with mutual-TLS client authentication
+  flows: [authorizationCode, clientCredentials]
+  sca: PSD2 Strong Customer Authentication (PSU consent + re-authentication)
+  message_signing: detached JWS via x-jws-signature header
+  ref: authentication/gb-bank-authentication.yml
+idempotency:
+  supported: true
+  header: x-idempotency-key
+  scope: payment-initiation write operations (POST domestic/international/file payments and consents)
+  max_length: 40
+  retention: ASPSP-defined; replay of the same key with an identical body returns the original result
+  conflict_status: 409
+  evidence: 18 x-idempotency-key parameter references in the payment-initiation standard spec
+pagination:
+  style: link-based
+  response_fields: [Links, Meta]
+  links: [Self, First, Prev, Next, Last]
+  meta: [TotalPages, FirstAvailableDateTime, LastAvailableDateTime]
+request_tracing:
+  header: x-fapi-interaction-id
+  description: TPP-supplied correlation id echoed by the ASPSP; also surfaced as the error envelope Id.
+  related_headers: [x-fapi-auth-date, x-fapi-customer-ip-address, x-customer-user-agent]
+versioning:
+  scheme: uri-path
+  read_write_version: v4.0.1
+  open_data_version: v1.3
+  pattern: /open-banking/v{major}.{minor}/{resource}
+error_envelope:
+  schema: OBErrorResponse1
+  fields: [Id, Code, Message, Errors]
+  ref: errors/gb-bank-problem-types.yml
+media_types:
+  request: application/json
+  open_data: application/prs.openbanking.opendata.v1.3+json
+rate_limiting:
+  signaled_via: HTTP 429 responses (ASPSP-defined limits; no standard header set mandated in-spec)
+  ref: errors/gb-bank-problem-types.yml

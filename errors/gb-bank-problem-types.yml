@@ -1,0 +1,66 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/uk-open-banking-account-info-api-openapi.yaml, openapi/uk-open-banking-payment-initiation-api-openapi.yaml, openapi/uk-open-banking-confirmation-of-funds-api-openapi.yaml
+note: >-
+  Derived from the shared OBIE UK Open Banking Read/Write standard OpenAPI documents
+  captured in this repo. UNVERIFIED for GB Bank - GB Bank operates no confirmed
+  hosted API surface; this is the error contract an FCA-authorised ASPSP conforming
+  to OBIE would return, not an observed GB Bank response.
+format: obie-oberror          # OBIE OBErrorResponse1 envelope (not RFC 9457)
+envelope:
+  schema: OBErrorResponse1
+  fields:
+    - Id            # unique reference for the error instance (maps to x-fapi-interaction-id)
+    - Code          # high-level textual error code for the message
+    - Message       # brief textual description
+    - Errors        # array of OBError1 { ErrorCode, Message, Path?, Url? }
+  item_schema: OBError1
+  item_fields: [ErrorCode, Message, Path, Url]
+  error_code_namespace: UK.OBIE.*        # e.g. UK.OBIE.Field.Missing, UK.OBIE.Resource.NotFound
+# HTTP-level problem responses derived from the standard's components.responses
+problems:
+  - status: 400
+    ref: "#/components/responses/400Error"
+    title: Bad request
+    description: Malformed request, missing/invalid field, or a field-level validation failure (UK.OBIE.Field.*).
+    envelope: OBErrorResponse1
+  - status: 401
+    ref: "#/components/responses/401Error"
+    title: Unauthorized
+    description: Access token missing, expired or invalid; SCA/re-authentication may be required (UK.OBIE.Reauthenticate).
+  - status: 403
+    ref: "#/components/responses/403Error"
+    title: Forbidden
+    description: Token lacks the required scope/consent, or the TPP is not entitled to the resource.
+  - status: 404
+    ref: "#/components/responses/404Error"
+    title: Not found
+    description: Consent or resource id does not exist (UK.OBIE.Resource.NotFound).
+  - status: 405
+    ref: "#/components/responses/405Error"
+    title: Method not allowed
+    description: HTTP method not supported for the resource.
+  - status: 406
+    ref: "#/components/responses/406Error"
+    title: Not acceptable
+    description: Requested media type in Accept is not supported.
+  - status: 409
+    ref: "#/components/responses/409Error"
+    title: Conflict
+    description: Idempotency conflict or resource-state conflict (e.g. reused x-idempotency-key with a different body).
+  - status: 415
+    ref: "#/components/responses/415Error"
+    title: Unsupported media type
+    description: Request Content-Type is not application/json (or the required signed media type).
+  - status: 422
+    ref: "#/components/responses/422Error"
+    title: Unprocessable entity
+    description: Request is well-formed but a business rule rejects it (UK.OBIE.Rules.* / UK.OBIE.Unsupported.*).
+  - status: 429
+    ref: "#/components/responses/429Error"
+    title: Too many requests
+    description: Rate limit exceeded; retry after the indicated interval.
+  - status: 500
+    ref: "#/components/responses/500Error"
+    title: Internal server error
+    description: Unexpected ASPSP-side failure.

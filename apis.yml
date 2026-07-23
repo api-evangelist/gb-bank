@@ -124,6 +124,26 @@ apis:
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
 common:
+- type: DomainSecurity
+  url: security/gb-bank-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/gb-bank-agentic-access.yml
+- type: OAuthScopes
+  url: scopes/gb-bank-scopes.yml
+- type: Authentication
+  url: authentication/gb-bank-authentication.yml
+- type: Conventions
+  url: conventions/gb-bank-conventions.yml
+- type: Idempotency
+  url: conventions/gb-bank-conventions.yml
+- type: ErrorCatalog
+  url: errors/gb-bank-problem-types.yml
+- type: Conformance
+  url: conformance/gb-bank-conformance.yml
+- type: DataModel
+  url: data-model/gb-bank-data-model.yml
+- type: LLMsTxt
+  url: llms/gb-bank-llms.txt
 - type: Website
   url: https://www.gbbank.co.uk/
 - type: Savings

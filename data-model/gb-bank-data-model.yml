@@ -1,0 +1,127 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/uk-open-banking-account-info-api-openapi.yaml, openapi/uk-open-banking-payment-initiation-api-openapi.yaml, openapi/uk-open-banking-confirmation-of-funds-api-openapi.yaml, openapi/uk-open-banking-open-data-api-openapi.json
+note: >-
+  Entity-relationship graph derived from the shared OBIE UK Open Banking standard
+  specs in this repo (consent-then-resource pattern). UNVERIFIED for GB Bank -
+  models the standard, not a GB Bank deployment.
+entities:
+  # ---- Account & Transaction Information (AIS) ----
+  - name: AccountAccessConsent
+    domain: account-information
+    key: ConsentId
+    description: PSU consent authorising a TPP to read specified account data.
+  - name: Account
+    domain: account-information
+    key: AccountId
+    description: A payment account the PSU has consented to share.
+  - name: Balance
+    domain: account-information
+    description: Balance snapshot for an account.
+  - name: Transaction
+    domain: account-information
+    description: Booked/pending transaction on an account.
+  - name: Beneficiary
+    domain: account-information
+  - name: DirectDebit
+    domain: account-information
+  - name: StandingOrder
+    domain: account-information
+  - name: ScheduledPayment
+    domain: account-information
+  - name: Statement
+    domain: account-information
+    key: StatementId
+  - name: Party
+    domain: account-information
+    description: Account holder / related party.
+  # ---- Payment Initiation (PIS) ----
+  - name: DomesticPaymentConsent
+    domain: payment-initiation
+    key: ConsentId
+  - name: DomesticPayment
+    domain: payment-initiation
+    key: DomesticPaymentId
+  - name: InternationalPaymentConsent
+    domain: payment-initiation
+    key: ConsentId
+  - name: InternationalPayment
+    domain: payment-initiation
+    key: InternationalPaymentId
+  - name: FilePaymentConsent
+    domain: payment-initiation
+    key: ConsentId
+  - name: FilePayment
+    domain: payment-initiation
+    key: FilePaymentId
+  # ---- Confirmation of Funds (CBPII) ----
+  - name: FundsConfirmationConsent
+    domain: confirmation-of-funds
+    key: ConsentId
+  - name: FundsConfirmation
+    domain: confirmation-of-funds
+  # ---- Open Data (unauthenticated reference data) ----
+  - name: Branch
+    domain: open-data
+  - name: ATM
+    domain: open-data
+  - name: PCA
+    domain: open-data
+    description: Personal Current Account product.
+  - name: BCA
+    domain: open-data
+    description: Business Current Account product.
+  - name: SMELoan
+    domain: open-data
+    description: Unsecured SME Loan product.
+  - name: CommercialCreditCard
+    domain: open-data
+relationships:
+  - from: Account
+    type: belongs_to
+    to: AccountAccessConsent
+    via: ConsentId
+  - from: Balance
+    type: belongs_to
+    to: Account
+    via: AccountId
+  - from: Transaction
+    type: belongs_to
+    to: Account
+    via: AccountId
+  - from: Beneficiary
+    type: belongs_to
+    to: Account
+    via: AccountId
+  - from: DirectDebit
+    type: belongs_to
+    to: Account
+    via: AccountId
+  - from: StandingOrder
+    type: belongs_to
+    to: Account
+    via: AccountId
+  - from: Statement
+    type: belongs_to
+    to: Account
+    via: AccountId
+  - from: Party
+    type: belongs_to
+    to: Account
+    via: AccountId
+  - from: DomesticPayment
+    type: belongs_to
+    to: DomesticPaymentConsent
+    via: ConsentId
+  - from: InternationalPayment
+    type: belongs_to
+    to: InternationalPaymentConsent
+    via: ConsentId
+  - from: FilePayment
+    type: belongs_to
+    to: FilePaymentConsent
+    via: ConsentId
+  - from: FundsConfirmation
+    type: belongs_to
+    to: FundsConfirmationConsent
+    via: ConsentId

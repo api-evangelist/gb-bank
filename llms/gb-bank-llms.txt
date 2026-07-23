@@ -1,0 +1,37 @@
+# GB Bank
+
+> GB Bank Limited is a UK challenger bank (FCA/PRA-authorised, Financial Services Register 850286; Companies House 10702260) headquartered in Middlesbrough with a London office. It funds SME regional property development, buy-to-let and bridging loans with retail savings (fixed-rate bonds, notice and easy-access accounts, FSCS-protected to £85,000). GB Bank is not a CMA9 bank and operates no confirmed public developer portal; the UK Open Banking (OBIE) API families below are represented as the shared industry standard an FCA-authorised ASPSP conforms to and are UNVERIFIED for GB Bank (no live GB Bank API host or base URL was found or invented).
+
+## APIs (represented as the shared OBIE standard - unverified for GB Bank)
+- [GB Bank Open Data API (OBIE v1.3)](https://github.com/OpenBankingUK/opendata-api-spec-compiled): Unauthenticated reference data - ATMs, Branches, PCA, BCA, SME loans, commercial credit cards.
+- [Account & Transaction Information API (AIS)](https://github.com/OpenBankingUK/read-write-api-specs): FAPI-secured account, balance, transaction and statement access with PSU consent.
+- [Payment Initiation API (PIS)](https://github.com/OpenBankingUK/read-write-api-specs): FAPI-secured domestic/international/file payment initiation with PSU consent.
+- [Confirmation of Funds API (CBPII)](https://github.com/OpenBankingUK/read-write-api-specs): FAPI-secured funds-availability confirmation with PSU consent.
+
+## Specs (captured in this repo)
+- openapi/uk-open-banking-open-data-api-openapi.json — OBIE Open Data API (Swagger 2.0, v1.3)
+- openapi/uk-open-banking-account-info-api-openapi.yaml — OBIE AIS (OpenAPI 3.0, v4.0.1)
+- openapi/uk-open-banking-payment-initiation-api-openapi.yaml — OBIE PIS (OpenAPI 3.0, v4.0.1)
+- openapi/uk-open-banking-confirmation-of-funds-api-openapi.yaml — OBIE CBPII (OpenAPI 3.0, v4.0.1)
+
+## Derived artifacts
+- authentication/gb-bank-authentication.yml — FAPI OAuth2 (authorizationCode + clientCredentials)
+- scopes/gb-bank-scopes.yml — OBIE scopes: accounts, payments, fundsconfirmations
+- conventions/gb-bank-conventions.yml — idempotency (x-idempotency-key), FAPI headers, pagination, versioning
+- errors/gb-bank-problem-types.yml — OBErrorResponse1 envelope + HTTP problem responses
+- conformance/gb-bank-conformance.yml — OAuth2/OIDC/FAPI/PSD2/OBIE/mTLS conformance
+- data-model/gb-bank-data-model.yml — OBIE consent-then-resource entity graph
+- agentic-access/gb-bank-agentic-access.yml — recommended x-agentic-access contracts (86 operations)
+- security/gb-bank-domain-security.yml — TLS/HSTS/DNS posture probe for gbbank.co.uk
+
+## Company
+- [Website](https://www.gbbank.co.uk/)
+- [About GB Bank](https://www.gbbank.co.uk/about-us/)
+- [Savings](https://www.gbbank.co.uk/savings)
+- [Help & Support](https://www.gbbank.co.uk/help-and-support/faqs)
+- [News](https://www.gbbank.co.uk/news)
+- [Companies House](https://find-and-update.company-information.service.gov.uk/company/10702260)
+
+## Standards
+- [UK Open Banking Read/Write Standard](https://standards.openbanking.org.uk/)
+- [UK Open Banking Open Data Standard](https://github.com/OpenBankingUK/opendata-api-spec-compiled)
