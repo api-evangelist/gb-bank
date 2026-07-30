@@ -35,37 +35,13 @@ created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.19'
 apis:
-- aid: gb-bank:gb-bank-open-data-api
-  name: GB Bank Open Data API
-  description: >-
-    UK Open Banking Open Data API (OBIE standard, v1.3) - the public, unauthenticated
-    reference-data surface for ATMs, Branches, Personal Current Accounts, Business
-    Current Accounts, Unsecured SME Loans and Commercial Credit Cards. Represented
-    here as the shared OBIE Open Data Standard; UNVERIFIED for GB Bank - no live Open
-    Data endpoint was confirmed on a gbbank.co.uk host (no fabricated base URL).
-  humanURL: https://github.com/OpenBankingUK/opendata-api-docs-pub
-  baseURL: ''
-  tags:
-  - Open Data
-  - ATMs
-  - Branches
-  - Reference Data
-  - Unauthenticated
-  properties:
-  - type: OpenAPI
-    url: openapi/uk-open-banking-open-data-api-openapi.json
-  - type: Documentation
-    url: https://github.com/OpenBankingUK/opendata-api-docs-pub
-  - type: APIReference
-    url: https://github.com/OpenBankingUK/opendata-api-spec-compiled
 - aid: gb-bank:gb-bank-account-transaction-information-api
   name: GB Bank Account and Transaction Information API (AIS)
   description: >-
-    UK Open Banking Read/Write Account & Transaction Information API (AISP) - the OBIE
-    standard for accessing account, balance, transaction and statement data with
-    customer consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). Represented here
-    as the shared OBIE Read/Write Standard; UNVERIFIED for GB Bank - no GB Bank
-    developer portal or production/sandbox base URL was found (no fabricated host).
+    UK Open Banking Read/Write Account & Transaction Information API (AISP) - the OBIE standard for accessing
+    account, balance, transaction and statement data with customer consent. FAPI-secured (OAuth2/OIDC,
+    mTLS, PSD2 SCA). Represented here as the shared OBIE Read/Write Standard; UNVERIFIED for GB Bank -
+    no GB Bank developer portal or production/sandbox base URL was found (no fabricated host).
   humanURL: https://github.com/OpenBankingUK/read-write-api-specs
   baseURL: ''
   tags:
@@ -83,11 +59,10 @@ apis:
 - aid: gb-bank:gb-bank-payment-initiation-api
   name: GB Bank Payment Initiation API (PIS)
   description: >-
-    UK Open Banking Read/Write Payment Initiation API (PISP) - the OBIE standard for
-    initiating domestic, scheduled, standing-order, international and file payments
-    with customer consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). Represented
-    here as the shared OBIE Read/Write Standard; UNVERIFIED for GB Bank - no GB Bank
-    developer portal or base URL was confirmed (no fabricated host).
+    UK Open Banking Read/Write Payment Initiation API (PISP) - the OBIE standard for initiating domestic,
+    scheduled, standing-order, international and file payments with customer consent. FAPI-secured (OAuth2/OIDC,
+    mTLS, PSD2 SCA). Represented here as the shared OBIE Read/Write Standard; UNVERIFIED for GB Bank -
+    no GB Bank developer portal or base URL was confirmed (no fabricated host).
   humanURL: https://github.com/OpenBankingUK/read-write-api-specs
   baseURL: ''
   tags:
@@ -105,11 +80,10 @@ apis:
 - aid: gb-bank:gb-bank-confirmation-of-funds-api
   name: GB Bank Confirmation of Funds API (CBPII)
   description: >-
-    UK Open Banking Read/Write Confirmation of Funds API (CBPII) - the OBIE standard
-    for confirming whether funds are available on a payment account with customer
-    consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). Represented here as the
-    shared OBIE Read/Write Standard; UNVERIFIED for GB Bank - no GB Bank developer
-    portal or base URL was confirmed (no fabricated host).
+    UK Open Banking Read/Write Confirmation of Funds API (CBPII) - the OBIE standard for confirming whether
+    funds are available on a payment account with customer consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2
+    SCA). Represented here as the shared OBIE Read/Write Standard; UNVERIFIED for GB Bank - no GB Bank
+    developer portal or base URL was confirmed (no fabricated host).
   humanURL: https://github.com/OpenBankingUK/read-write-api-specs
   baseURL: ''
   tags:
@@ -123,6 +97,13 @@ apis:
     url: https://standards.openbanking.org.uk/
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:uk-open-banking-open-data-api-openapi
+  name: GB Bank Open Data API
+  description: GB Bank Open Data API from GB Bank — 6 path(s) described in OpenAPI.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  properties:
+  - type: OpenAPI
+    url: openapi/uk-open-banking-open-data-api-openapi.json
 common:
 - type: DomainSecurity
   url: security/gb-bank-domain-security.yml
