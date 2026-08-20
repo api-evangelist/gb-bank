@@ -19,6 +19,19 @@ description: GB Bank Limited is a UK challenger bank headquartered in Middlesbro
   a confirmed developer portal or Open Data endpoint.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
+- Financial-Services
+- Banking
+- Open Banking
+- PSD2
+- OBIE
+- United Kingdom
+- Payments
+- Account Information
+- Savings
+- Property Finance
+- SME Lending
+- Fintech
+tags_raw:
 - Financial Services
 - Banking
 - Open Banking
@@ -45,6 +58,11 @@ apis:
   humanURL: https://github.com/OpenBankingUK/read-write-api-specs
   baseURL: ''
   tags:
+  - Account Information
+  - Transaction
+  - AISP
+  - FAPI
+  tags_raw:
   - Account Information
   - Transactions
   - AISP
