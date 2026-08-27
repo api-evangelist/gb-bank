@@ -48,80 +48,465 @@ created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.23'
 apis:
-- aid: gb-bank:gb-bank-account-transaction-information-api
-  name: GB Bank Account and Transaction Information API (AIS)
+- aid: gb-bank:gb-bank-account-access-consents-api
+  name: GB Bank Account Access Consents API
   description: >-
-    UK Open Banking Read/Write Account & Transaction Information API (AISP) - the OBIE standard for accessing
-    account, balance, transaction and statement data with customer consent. FAPI-secured (OAuth2/OIDC,
-    mTLS, PSD2 SCA). Represented here as the shared OBIE Read/Write Standard; UNVERIFIED for GB Bank -
-    no GB Bank developer portal or production/sandbox base URL was found (no fabricated host).
+    The Account Access Consents API from GB Bank — 2 operation(s) for account access consents.
   humanURL: https://github.com/OpenBankingUK/read-write-api-specs
-  baseURL: ''
   tags:
-  - Account Information
-  - Transaction
-  - AISP
-  - FAPI
-  tags_raw:
-  - Account Information
+  - Account Access Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-account-access-consents-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-accounts-api
+  name: GB Bank Accounts API
+  description: The Accounts API from GB Bank — 2 operation(s) for accounts.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-atm-api
+  name: GB Bank ATM API
+  description: Endpoint for getting ATM data
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - ATM
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-atm-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-balances-api
+  name: GB Bank Balances API
+  description: The Balances API from GB Bank — 2 operation(s) for balances.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Balances
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-balances-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-bca-api
+  name: GB Bank BCA API
+  description: Endpoint for getting Business Current Account data
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - BCA
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-bca-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-beneficiaries-api
+  name: GB Bank Beneficiaries API
+  description: The Beneficiaries API from GB Bank — 2 operation(s) for beneficiaries.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Beneficiaries
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-beneficiaries-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-branch-api
+  name: GB Bank Branch API
+  description: Endpoint for getting Branch data
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Branch
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-branch-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-ccc-api
+  name: GB Bank CCC API
+  description: Endpoint for getting Commercial Credit Card data
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - CCC
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-ccc-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-direct-debits-api
+  name: GB Bank Direct Debits API
+  description: The Direct Debits API from GB Bank — 2 operation(s) for direct debits.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Direct Debits
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-direct-debits-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-domestic-payment-consents-api
+  name: GB Bank Domestic Payment Consents API
+  description: >-
+    The Domestic Payment Consents API from GB Bank — 3 operation(s) for domestic payment consents.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Domestic Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-domestic-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-domestic-payments-api
+  name: GB Bank Domestic Payments API
+  description: The Domestic Payments API from GB Bank — 3 operation(s) for domestic payments.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Domestic Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-domestic-payments-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-domestic-scheduled-payment-consents-api
+  name: GB Bank Domestic Scheduled Payment Consents API
+  description: >-
+    The Domestic Scheduled Payment Consents API from GB Bank — 2 operation(s) for domestic scheduled payment
+    consents.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Domestic Scheduled Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-domestic-scheduled-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-domestic-scheduled-payments-api
+  name: GB Bank Domestic Scheduled Payments API
+  description: >-
+    The Domestic Scheduled Payments API from GB Bank — 3 operation(s) for domestic scheduled payments.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Domestic Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-domestic-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-domestic-standing-order-consents-api
+  name: GB Bank Domestic Standing Order Consents API
+  description: >-
+    The Domestic Standing Order Consents API from GB Bank — 2 operation(s) for domestic standing order
+    consents.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Domestic Standing Order Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-domestic-standing-order-consents-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-domestic-standing-orders-api
+  name: GB Bank Domestic Standing Orders API
+  description: >-
+    The Domestic Standing Orders API from GB Bank — 3 operation(s) for domestic standing orders.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Domestic Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-domestic-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-file-payment-consents-api
+  name: GB Bank File Payment Consents API
+  description: The File Payment Consents API from GB Bank — 3 operation(s) for file payment consents.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - File Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-file-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-file-payments-api
+  name: GB Bank File Payments API
+  description: The File Payments API from GB Bank — 4 operation(s) for file payments.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - File Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-file-payments-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-funds-confirmation-consents-api
+  name: GB Bank Funds Confirmation Consents API
+  description: >-
+    The Funds Confirmation Consents API from GB Bank — 2 operation(s) for funds confirmation consents.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Funds Confirmation Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-funds-confirmation-consents-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-funds-confirmations-api
+  name: GB Bank Funds Confirmations API
+  description: The Funds Confirmations API from GB Bank — 1 operation(s) for funds confirmations.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Funds Confirmations
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-funds-confirmations-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-international-payment-consents-api
+  name: GB Bank International Payment Consents API
+  description: >-
+    The International Payment Consents API from GB Bank — 3 operation(s) for international payment consents.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - International Payment Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-international-payment-consents-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-international-payments-api
+  name: GB Bank International Payments API
+  description: The International Payments API from GB Bank — 3 operation(s) for international payments.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - International Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-international-payments-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-international-scheduled-payments-api
+  name: GB Bank International Scheduled Payments API
+  description: >-
+    The International Scheduled Payments API from GB Bank — 3 operation(s) for international scheduled
+    payments.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - International Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-international-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-international-scheduled-payments-consents-api
+  name: GB Bank International Scheduled Payments Consents API
+  description: >-
+    The International Scheduled Payments Consents API from GB Bank — 3 operation(s) for international
+    scheduled payments consents.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - International Scheduled Payments Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-international-scheduled-payments-consents-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-international-standing-orders-api
+  name: GB Bank International Standing Orders API
+  description: >-
+    The International Standing Orders API from GB Bank — 3 operation(s) for international standing orders.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - International Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-international-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-international-standing-orders-consents-api
+  name: GB Bank International Standing Orders Consents API
+  description: >-
+    The International Standing Orders Consents API from GB Bank — 2 operation(s) for international standing
+    orders consents.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - International Standing Orders Consents
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-international-standing-orders-consents-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-offers-api
+  name: GB Bank Offers API
+  description: The Offers API from GB Bank — 2 operation(s) for offers.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Offers
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-offers-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-parties-api
+  name: GB Bank Parties API
+  description: The Parties API from GB Bank — 3 operation(s) for parties.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Parties
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-parties-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-pca-api
+  name: GB Bank PCA API
+  description: Endpoint for getting Personal Current Account data
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - PCA
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-pca-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-products-api
+  name: GB Bank Products API
+  description: The Products API from GB Bank — 2 operation(s) for products.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-products-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-scheduled-payments-api
+  name: GB Bank Scheduled Payments API
+  description: The Scheduled Payments API from GB Bank — 2 operation(s) for scheduled payments.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-sme-api
+  name: GB Bank SME API
+  description: Endpoint for getting Unsecured SME Loan data
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - SME
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-sme-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-standing-orders-api
+  name: GB Bank Standing Orders API
+  description: The Standing Orders API from GB Bank — 2 operation(s) for standing orders.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Standing Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-standing-orders-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-statements-api
+  name: GB Bank Statements API
+  description: The Statements API from GB Bank — 5 operation(s) for statements.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
+  - Statements
+  properties:
+  - type: OpenAPI
+    url: openapi/gb-bank-statements-api-openapi.yml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/
+  - type: APIReference
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: gb-bank:gb-bank-transactions-api
+  name: GB Bank Transactions API
+  description: The Transactions API from GB Bank — 2 operation(s) for transactions.
+  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
+  tags:
   - Transactions
-  - AISP
-  - FAPI
   properties:
   - type: OpenAPI
-    url: openapi/uk-open-banking-account-info-api-openapi.yaml
+    url: openapi/gb-bank-transactions-api-openapi.yml
   - type: Documentation
     url: https://standards.openbanking.org.uk/
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
-- aid: gb-bank:gb-bank-payment-initiation-api
-  name: GB Bank Payment Initiation API (PIS)
-  description: >-
-    UK Open Banking Read/Write Payment Initiation API (PISP) - the OBIE standard for initiating domestic,
-    scheduled, standing-order, international and file payments with customer consent. FAPI-secured (OAuth2/OIDC,
-    mTLS, PSD2 SCA). Represented here as the shared OBIE Read/Write Standard; UNVERIFIED for GB Bank -
-    no GB Bank developer portal or base URL was confirmed (no fabricated host).
-  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
-  baseURL: ''
-  tags:
-  - Payment Initiation
-  - Payments
-  - PISP
-  - FAPI
-  properties:
-  - type: OpenAPI
-    url: openapi/uk-open-banking-payment-initiation-api-openapi.yaml
-  - type: Documentation
-    url: https://standards.openbanking.org.uk/
-  - type: APIReference
-    url: https://github.com/OpenBankingUK/read-write-api-specs
-- aid: gb-bank:gb-bank-confirmation-of-funds-api
-  name: GB Bank Confirmation of Funds API (CBPII)
-  description: >-
-    UK Open Banking Read/Write Confirmation of Funds API (CBPII) - the OBIE standard for confirming whether
-    funds are available on a payment account with customer consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2
-    SCA). Represented here as the shared OBIE Read/Write Standard; UNVERIFIED for GB Bank - no GB Bank
-    developer portal or base URL was confirmed (no fabricated host).
-  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
-  baseURL: ''
-  tags:
-  - Confirmation of Funds
-  - CBPII
-  - FAPI
-  properties:
-  - type: OpenAPI
-    url: openapi/uk-open-banking-confirmation-of-funds-api-openapi.yaml
-  - type: Documentation
-    url: https://standards.openbanking.org.uk/
-  - type: APIReference
-    url: https://github.com/OpenBankingUK/read-write-api-specs
-- aid: gb-bank:uk-open-banking-open-data-api-openapi
-  name: GB Bank Open Data API
-  description: GB Bank Open Data API from GB Bank — 6 path(s) described in OpenAPI.
-  humanURL: https://github.com/OpenBankingUK/read-write-api-specs
-  properties:
-  - type: OpenAPI
-    url: openapi/uk-open-banking-open-data-api-openapi.json
 common:
 - type: DomainSecurity
   url: security/gb-bank-domain-security.yml
