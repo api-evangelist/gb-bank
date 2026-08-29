@@ -17,6 +17,18 @@ description: GB Bank Limited is a UK challenger bank headquartered in Middlesbro
   API families listed here are represented as the shared industry standard the bank
   would conform to as an FCA-authorised ASPSP, and are unverified for GB Bank pending
   a confirmed developer portal or Open Data endpoint.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Financial-Services
