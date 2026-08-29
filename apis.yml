@@ -520,6 +520,9 @@ apis:
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
 common:
+- type: CapabilityMap
+  url: capabilities/gb-bank-capability-edges.yml
+  name: GB Bank Business Capability Map
 - type: DomainSecurity
   url: security/gb-bank-domain-security.yml
 - type: AgenticAccess
