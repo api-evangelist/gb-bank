@@ -79,6 +79,8 @@ apis:
   description: The Accounts API from GB Bank — 2 operation(s) for accounts.
   humanURL: https://github.com/OpenBankingUK/read-write-api-specs
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -446,6 +448,8 @@ apis:
   description: The Products API from GB Bank — 2 operation(s) for products.
   humanURL: https://github.com/OpenBankingUK/read-write-api-specs
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -511,6 +515,8 @@ apis:
   description: The Transactions API from GB Bank — 2 operation(s) for transactions.
   humanURL: https://github.com/OpenBankingUK/read-write-api-specs
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
