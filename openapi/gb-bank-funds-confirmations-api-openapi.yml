@@ -62,49 +62,126 @@ paths:
       - PSUOAuth2Security:
         - fundsconfirmations
 components:
-  headers:
-    RateLimit:
-      required: false
-      description: 'TPPs __must__ refer to ASPSP developer portals for further information on any rate limit policies, if the headers are supported and any additional requirements.
-
-
-        A server uses the "RateLimit" response header field to communicate the current service limit for a quota policy for a particular partition key.
-
-
-        Example:
-
-        `RateLimit: "default";r=50;t=30`
-
-
-        The **REQUIRED** "r" parameter value conveys the remaining quota units for the identified policy.
-
-
-        The **OPTIONAL** "t" parameter value conveys the time window reset time for the identified policy.
-
-        '
-      schema:
-        type: string
-    RateLimit-Policy:
-      required: false
-      description: 'TPPs __must__ refer to ASPSP developer portals for further information on any rate limit policies, if the headers are supported and any additional requirements.
-
-
-        A non-empty list of Quota Policy Items. The Item value __MUST__ be a String.
-
-
-        Example:
-
-        `RateLimit-Policy: "default";q=100;w=10`
-
-
-        The **REQUIRED** "q" parameter indicates the quota allocated by this policy measured in quota units.
-
-
-        The **OPTIONAL** "w" parameter value conveys a time window.
-
-        '
-      schema:
-        type: string
+  responses:
+    401Error:
+      description: Unauthorized
+      headers:
+        x-fapi-interaction-id:
+          required: true
+          description: An RFC4122 UID used as a correlation id.
+          schema:
+            type: string
+    405Error:
+      description: Method Not Allowed
+      headers:
+        x-fapi-interaction-id:
+          required: true
+          description: An RFC4122 UID used as a correlation id.
+          schema:
+            type: string
+    500Error:
+      description: Internal Server Error
+      headers:
+        x-fapi-interaction-id:
+          required: true
+          description: An RFC4122 UID used as a correlation id.
+          schema:
+            type: string
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/OBErrorResponse1'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OBErrorResponse1'
+        application/jose+jwe:
+          schema:
+            $ref: '#/components/schemas/OBErrorResponse1'
+    400Error:
+      description: Bad request
+      headers:
+        x-fapi-interaction-id:
+          required: true
+          description: An RFC4122 UID used as a correlation id.
+          schema:
+            type: string
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/OBErrorResponse1'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OBErrorResponse1'
+        application/jose+jwe:
+          schema:
+            $ref: '#/components/schemas/OBErrorResponse1'
+    201FundsConfirmationsCreated:
+      description: Funds Confirmation Created
+      headers:
+        x-fapi-interaction-id:
+          required: true
+          description: An RFC4122 UID used as a correlation id.
+          schema:
+            type: string
+        RateLimit-Policy:
+          $ref: '#/components/headers/RateLimit-Policy'
+        RateLimit:
+          $ref: '#/components/headers/RateLimit'
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/OBFundsConfirmationResponse1'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OBFundsConfirmationResponse1'
+        application/jose+jwe:
+          schema:
+            $ref: '#/components/schemas/OBFundsConfirmationResponse1'
+    415Error:
+      description: Unsupported Media Type
+      headers:
+        x-fapi-interaction-id:
+          required: true
+          description: An RFC4122 UID used as a correlation id.
+          schema:
+            type: string
+    429Error:
+      description: Too Many Requests
+      headers:
+        Retry-After:
+          description: Number in seconds to wait
+          schema:
+            type: integer
+        x-fapi-interaction-id:
+          description: An RFC4122 UID used as a correlation id.
+          schema:
+            type: string
+    403Error:
+      description: Forbidden
+      headers:
+        x-fapi-interaction-id:
+          required: true
+          description: An RFC4122 UID used as a correlation id.
+          schema:
+            type: string
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/OBErrorResponse1'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OBErrorResponse1'
+        application/jose+jwe:
+          schema:
+            $ref: '#/components/schemas/OBErrorResponse1'
+    406Error:
+      description: Not Acceptable
+      headers:
+        x-fapi-interaction-id:
+          required: true
+          description: An RFC4122 UID used as a correlation id.
+          schema:
+            type: string
   parameters:
     x-fapi-auth-date:
       in: header
@@ -114,11 +191,11 @@ components:
       schema:
         type: string
         pattern: ^(Mon|Tue|Wed|Thu|Fri|Sat|Sun), \d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} \d{2}:\d{2}:\d{2} (GMT|UTC)$
-    x-fapi-customer-ip-address:
+    Authorization:
       in: header
-      name: x-fapi-customer-ip-address
-      required: false
-      description: The PSU's IP address if the PSU is currently logged in with the TPP.
+      name: Authorization
+      required: true
+      description: An Authorisation Token as per https://tools.ietf.org/html/rfc6750
       schema:
         type: string
     x-client-id:
@@ -128,6 +205,13 @@ components:
       description: "Only used if an ASPSP requires the client ID in order to return rate limit headers. \n\nTPPs __must__ refer to ASPSP developer portals for further information on any rate limit policies, if the headers are supported and any additional requirements.\n\nThis header __must not__ be used for client authentication\n"
       schema:
         type: string
+    x-fapi-interaction-id:
+      in: header
+      name: x-fapi-interaction-id
+      required: false
+      description: An RFC4122 UID used as a correlation id.
+      schema:
+        type: string
     x-customer-user-agent:
       in: header
       name: x-customer-user-agent
@@ -135,18 +219,11 @@ components:
       required: false
       schema:
         type: string
-    Authorization:
+    x-fapi-customer-ip-address:
       in: header
-      name: Authorization
-      required: true
-      description: An Authorisation Token as per https://tools.ietf.org/html/rfc6750
-      schema:
-        type: string
-    x-fapi-interaction-id:
-      in: header
-      name: x-fapi-interaction-id
+      name: x-fapi-customer-ip-address
       required: false
-      description: An RFC4122 UID used as a correlation id.
+      description: The PSU's IP address if the PSU is currently logged in with the TPP.
       schema:
         type: string
   schemas:
@@ -207,10 +284,6 @@ components:
         Meta:
           $ref: '#/components/schemas/Meta'
       additionalProperties: false
-    ISODateTime:
-      description: "All dates in the JSON payloads are represented in ISO 8601 date-time format. \nAll date-time fields in responses must include the timezone. An example is below:\n2017-04-05T10:43:07+00:00"
-      type: string
-      format: date-time
     Links:
       type: object
       description: Links relevant to the payload
@@ -233,6 +306,36 @@ components:
       additionalProperties: false
       required:
       - Self
+    OBError1:
+      type: object
+      properties:
+        ErrorCode:
+          $ref: '#/components/schemas/OBExternalStatusReason1Code'
+        Message:
+          description: 'A description of the error that occurred. e.g., ''A mandatory field isn''t supplied'' or ''RequestedExecutionDateTime must be in future''
+
+            OBL doesn''t standardise this field'
+          type: string
+          minLength: 1
+          maxLength: 500
+        Path:
+          description: Recommended but optional reference to the JSON Path of the field with error, e.g., Data.Initiation.InstructedAmount.Currency
+          type: string
+          minLength: 1
+          maxLength: 500
+        Url:
+          description: URL to help remediate the problem, or provide more information, or to API Reference, or help etc
+          type: string
+      required:
+      - ErrorCode
+      additionalProperties: false
+      minProperties: 1
+    OBExternalStatusReason1Code:
+      description: Low level textual error code, for all enum values see `OBExternalStatusReason1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+      type: string
+      minLength: 4
+      maxLength: 4
+      example: U001
     OBErrorResponse1:
       description: An array of detail error codes, and messages, and URLs to documentation to help remediation.
       type: object
@@ -300,30 +403,6 @@ components:
                   type: string
                   pattern: ^[A-Z]{3,3}$
       additionalProperties: false
-    OBError1:
-      type: object
-      properties:
-        ErrorCode:
-          $ref: '#/components/schemas/OBExternalStatusReason1Code'
-        Message:
-          description: 'A description of the error that occurred. e.g., ''A mandatory field isn''t supplied'' or ''RequestedExecutionDateTime must be in future''
-
-            OBL doesn''t standardise this field'
-          type: string
-          minLength: 1
-          maxLength: 500
-        Path:
-          description: Recommended but optional reference to the JSON Path of the field with error, e.g., Data.Initiation.InstructedAmount.Currency
-          type: string
-          minLength: 1
-          maxLength: 500
-        Url:
-          description: URL to help remediate the problem, or provide more information, or to API Reference, or help etc
-          type: string
-      required:
-      - ErrorCode
-      additionalProperties: false
-      minProperties: 1
     Meta:
       title: MetaData
       type: object
@@ -337,132 +416,53 @@ components:
         LastAvailableDateTime:
           $ref: '#/components/schemas/ISODateTime'
       additionalProperties: false
-    OBExternalStatusReason1Code:
-      description: Low level textual error code, for all enum values see `OBExternalStatusReason1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+    ISODateTime:
+      description: "All dates in the JSON payloads are represented in ISO 8601 date-time format. \nAll date-time fields in responses must include the timezone. An example is below:\n2017-04-05T10:43:07+00:00"
       type: string
-      minLength: 4
-      maxLength: 4
-      example: U001
-  responses:
-    403Error:
-      description: Forbidden
-      headers:
-        x-fapi-interaction-id:
-          required: true
-          description: An RFC4122 UID used as a correlation id.
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OBErrorResponse1'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OBErrorResponse1'
-        application/jose+jwe:
-          schema:
-            $ref: '#/components/schemas/OBErrorResponse1'
-    500Error:
-      description: Internal Server Error
-      headers:
-        x-fapi-interaction-id:
-          required: true
-          description: An RFC4122 UID used as a correlation id.
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OBErrorResponse1'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OBErrorResponse1'
-        application/jose+jwe:
-          schema:
-            $ref: '#/components/schemas/OBErrorResponse1'
-    400Error:
-      description: Bad request
-      headers:
-        x-fapi-interaction-id:
-          required: true
-          description: An RFC4122 UID used as a correlation id.
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OBErrorResponse1'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OBErrorResponse1'
-        application/jose+jwe:
-          schema:
-            $ref: '#/components/schemas/OBErrorResponse1'
-    406Error:
-      description: Not Acceptable
-      headers:
-        x-fapi-interaction-id:
-          required: true
-          description: An RFC4122 UID used as a correlation id.
-          schema:
-            type: string
-    405Error:
-      description: Method Not Allowed
-      headers:
-        x-fapi-interaction-id:
-          required: true
-          description: An RFC4122 UID used as a correlation id.
-          schema:
-            type: string
-    415Error:
-      description: Unsupported Media Type
-      headers:
-        x-fapi-interaction-id:
-          required: true
-          description: An RFC4122 UID used as a correlation id.
-          schema:
-            type: string
-    201FundsConfirmationsCreated:
-      description: Funds Confirmation Created
-      headers:
-        x-fapi-interaction-id:
-          required: true
-          description: An RFC4122 UID used as a correlation id.
-          schema:
-            type: string
-        RateLimit-Policy:
-          $ref: '#/components/headers/RateLimit-Policy'
-        RateLimit:
-          $ref: '#/components/headers/RateLimit'
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OBFundsConfirmationResponse1'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OBFundsConfirmationResponse1'
-        application/jose+jwe:
-          schema:
-            $ref: '#/components/schemas/OBFundsConfirmationResponse1'
-    401Error:
-      description: Unauthorized
-      headers:
-        x-fapi-interaction-id:
-          required: true
-          description: An RFC4122 UID used as a correlation id.
-          schema:
-            type: string
-    429Error:
-      description: Too Many Requests
-      headers:
-        Retry-After:
-          description: Number in seconds to wait
-          schema:
-            type: integer
-        x-fapi-interaction-id:
-          description: An RFC4122 UID used as a correlation id.
-          schema:
-            type: string
+      format: date-time
+  headers:
+    RateLimit:
+      required: false
+      description: 'TPPs __must__ refer to ASPSP developer portals for further information on any rate limit policies, if the headers are supported and any additional requirements.
+
+
+        A server uses the "RateLimit" response header field to communicate the current service limit for a quota policy for a particular partition key.
+
+
+        Example:
+
+        `RateLimit: "default";r=50;t=30`
+
+
+        The **REQUIRED** "r" parameter value conveys the remaining quota units for the identified policy.
+
+
+        The **OPTIONAL** "t" parameter value conveys the time window reset time for the identified policy.
+
+        '
+      schema:
+        type: string
+    RateLimit-Policy:
+      required: false
+      description: 'TPPs __must__ refer to ASPSP developer portals for further information on any rate limit policies, if the headers are supported and any additional requirements.
+
+
+        A non-empty list of Quota Policy Items. The Item value __MUST__ be a String.
+
+
+        Example:
+
+        `RateLimit-Policy: "default";q=100;w=10`
+
+
+        The **REQUIRED** "q" parameter indicates the quota allocated by this policy measured in quota units.
+
+
+        The **OPTIONAL** "w" parameter value conveys a time window.
+
+        '
+      schema:
+        type: string
   securitySchemes:
     TPPOAuth2Security:
       type: oauth2
