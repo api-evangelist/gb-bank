@@ -71,7 +71,7 @@ tags_raw:
 - Fintech
 - Financial-Services
 created: '2026-07-23'
-modified: '2026-07-23'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: gb-bank:gb-bank-account-access-consents-api
@@ -542,6 +542,8 @@ apis:
   - type: APIReference
     url: https://github.com/OpenBankingUK/read-write-api-specs
 common:
+- url: https://www.gbbank.co.uk/feed/
+  type: BlogRSS
 - type: CapabilityMap
   url: capabilities/gb-bank-capability-edges.yml
   name: GB Bank Business Capability Map
