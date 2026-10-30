@@ -1,4 +1,4 @@
-# GB Bank (gb-bank)
+# GB Bank
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,124 +64,139 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-GB Bank Limited is a UK challenger bank headquartered in Middlesbrough with a London office in Mayfair. It secured its full UK banking licence in 2022 and is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the PRA (Financial Services Register number 850286). GB Bank funds SME regional property developers and investors with development finance, buy-to-let and bridging loans, funded by FSCS-protected retail savings accounts (fixed-rate bonds, notice accounts, easy access) and a GB Bank mobile app.
+GB Bank Limited is a UK challenger bank headquartered in Middlesbrough (2 Centre Square) with a London office (73 Brook Street, Mayfair). Wholly owned and privately backed rather than a mutual building society, it secured its full UK banking licence in 2022 and is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the PRA (Financial Services Register number 850286). GB Bank funds SME regional property developers and investors with development finance, buy-to-let and bridging loans (typically between £26k and £5m across underserved UK regions) and funds that lending with retail deposits - fixed-rate bonds, notice accounts and easy-access savings accounts protected by the FSCS up to £85,000, managed through an online portal and a GB Bank mobile app. As a small, non-CMA9 FCA-authorised bank focused on savings and secured lending, GB Bank does not operate a public developer portal or a documented UK Open Banking (OBIE / PSD2) API surface; the Open Banking API families listed here are represented as the shared industry standard the bank would conform to as an FCA-authorised ASPSP, and are unverified for GB Bank pending a confirmed developer portal or Open Data endpoint.
 
-As a small, non-CMA9 FCA-authorised bank focused on savings and secured lending, GB Bank does not operate a public developer portal or a documented UK Open Banking (OBIE / PSD2) API surface. The Open Banking API families below are represented as the shared industry standard an FCA-authorised ASPSP conforms to, and are **unverified** for GB Bank pending a confirmed developer portal or Open Data endpoint. The harvested OpenAPI/Swagger documents are the **shared OBIE standard specifications**, not GB Bank proprietary contracts.
+**Areas:** Financial Services · Banking · Open Banking · PSD2 · OBIE · United Kingdom · Payments · Account Information · Savings · Property Finance · SME Lending · Fintech
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/gb-bank/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/gb-bank/refs/heads/main/apis.yml)
+## GB Bank on APIs.io
 
-## Tags
+Everything profiled for GB Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gb-bank/](https://apis.io/providers/gb-bank/)** — or go straight to one of the APIs or properties below.
 
-- Financial Services
-- Banking
-- Open Banking
-- PSD2
-- OBIE
-- United Kingdom
-- Payments
-- Account Information
-- Savings
-- Property Finance
-- SME Lending
-- Fintech
+### APIs (34)
 
-## Timestamps
+- [GB Bank Account Access Consents API](https://apis.io/apis/gb-bank/gb-bank-account-access-consents-api/) — The Account Access Consents API from GB Bank — 2 operation(s) for account access consents.
+- [GB Bank Accounts API](https://apis.io/apis/gb-bank/gb-bank-accounts-api/) — The Accounts API from GB Bank — 2 operation(s) for accounts.
+- [GB Bank ATM API](https://apis.io/apis/gb-bank/gb-bank-atm-api/) — Endpoint for getting ATM data
+- [GB Bank Balances API](https://apis.io/apis/gb-bank/gb-bank-balances-api/) — The Balances API from GB Bank — 2 operation(s) for balances.
+- [GB Bank BCA API](https://apis.io/apis/gb-bank/gb-bank-bca-api/) — Endpoint for getting Business Current Account data
+- [GB Bank Beneficiaries API](https://apis.io/apis/gb-bank/gb-bank-beneficiaries-api/) — The Beneficiaries API from GB Bank — 2 operation(s) for beneficiaries.
+- [GB Bank Branch API](https://apis.io/apis/gb-bank/gb-bank-branch-api/) — Endpoint for getting Branch data
+- [GB Bank CCC API](https://apis.io/apis/gb-bank/gb-bank-ccc-api/) — Endpoint for getting Commercial Credit Card data
+- [GB Bank Direct Debits API](https://apis.io/apis/gb-bank/gb-bank-direct-debits-api/) — The Direct Debits API from GB Bank — 2 operation(s) for direct debits.
+- [GB Bank Domestic Payment Consents API](https://apis.io/apis/gb-bank/gb-bank-domestic-payment-consents-api/) — The Domestic Payment Consents API from GB Bank — 3 operation(s) for domestic payment consents.
+- [GB Bank Domestic Payments API](https://apis.io/apis/gb-bank/gb-bank-domestic-payments-api/) — The Domestic Payments API from GB Bank — 3 operation(s) for domestic payments.
+- [GB Bank Domestic Scheduled Payment Consents API](https://apis.io/apis/gb-bank/gb-bank-domestic-scheduled-payment-consents-api/) — The Domestic Scheduled Payment Consents API from GB Bank — 2 operation(s) for domestic scheduled payment consents.
+- [GB Bank Domestic Scheduled Payments API](https://apis.io/apis/gb-bank/gb-bank-domestic-scheduled-payments-api/) — The Domestic Scheduled Payments API from GB Bank — 3 operation(s) for domestic scheduled payments.
+- [GB Bank Domestic Standing Order Consents API](https://apis.io/apis/gb-bank/gb-bank-domestic-standing-order-consents-api/) — The Domestic Standing Order Consents API from GB Bank — 2 operation(s) for domestic standing order consents.
+- [GB Bank Domestic Standing Orders API](https://apis.io/apis/gb-bank/gb-bank-domestic-standing-orders-api/) — The Domestic Standing Orders API from GB Bank — 3 operation(s) for domestic standing orders.
+- [GB Bank File Payment Consents API](https://apis.io/apis/gb-bank/gb-bank-file-payment-consents-api/) — The File Payment Consents API from GB Bank — 3 operation(s) for file payment consents.
+- [GB Bank File Payments API](https://apis.io/apis/gb-bank/gb-bank-file-payments-api/) — The File Payments API from GB Bank — 4 operation(s) for file payments.
+- [GB Bank Funds Confirmation Consents API](https://apis.io/apis/gb-bank/gb-bank-funds-confirmation-consents-api/) — The Funds Confirmation Consents API from GB Bank — 2 operation(s) for funds confirmation consents.
+- [GB Bank Funds Confirmations API](https://apis.io/apis/gb-bank/gb-bank-funds-confirmations-api/) — The Funds Confirmations API from GB Bank — 1 operation(s) for funds confirmations.
+- [GB Bank International Payment Consents API](https://apis.io/apis/gb-bank/gb-bank-international-payment-consents-api/) — The International Payment Consents API from GB Bank — 3 operation(s) for international payment consents.
+- [GB Bank International Payments API](https://apis.io/apis/gb-bank/gb-bank-international-payments-api/) — The International Payments API from GB Bank — 3 operation(s) for international payments.
+- [GB Bank International Scheduled Payments API](https://apis.io/apis/gb-bank/gb-bank-international-scheduled-payments-api/) — The International Scheduled Payments API from GB Bank — 3 operation(s) for international scheduled payments.
+- [GB Bank International Scheduled Payments Consents API](https://apis.io/apis/gb-bank/gb-bank-international-scheduled-payments-consents-api/) — The International Scheduled Payments Consents API from GB Bank — 3 operation(s) for international scheduled payments consents.
+- [GB Bank International Standing Orders API](https://apis.io/apis/gb-bank/gb-bank-international-standing-orders-api/) — The International Standing Orders API from GB Bank — 3 operation(s) for international standing orders.
+- [GB Bank International Standing Orders Consents API](https://apis.io/apis/gb-bank/gb-bank-international-standing-orders-consents-api/) — The International Standing Orders Consents API from GB Bank — 2 operation(s) for international standing orders consents.
+- [GB Bank Offers API](https://apis.io/apis/gb-bank/gb-bank-offers-api/) — The Offers API from GB Bank — 2 operation(s) for offers.
+- [GB Bank Parties API](https://apis.io/apis/gb-bank/gb-bank-parties-api/) — The Parties API from GB Bank — 3 operation(s) for parties.
+- [GB Bank PCA API](https://apis.io/apis/gb-bank/gb-bank-pca-api/) — Endpoint for getting Personal Current Account data
+- [GB Bank Products API](https://apis.io/apis/gb-bank/gb-bank-products-api/) — The Products API from GB Bank — 2 operation(s) for products.
+- [GB Bank Scheduled Payments API](https://apis.io/apis/gb-bank/gb-bank-scheduled-payments-api/) — The Scheduled Payments API from GB Bank — 2 operation(s) for scheduled payments.
+- [GB Bank SME API](https://apis.io/apis/gb-bank/gb-bank-sme-api/) — Endpoint for getting Unsecured SME Loan data
+- [GB Bank Standing Orders API](https://apis.io/apis/gb-bank/gb-bank-standing-orders-api/) — The Standing Orders API from GB Bank — 2 operation(s) for standing orders.
+- [GB Bank Statements API](https://apis.io/apis/gb-bank/gb-bank-statements-api/) — The Statements API from GB Bank — 5 operation(s) for statements.
+- [GB Bank Transactions API](https://apis.io/apis/gb-bank/gb-bank-transactions-api/) — The Transactions API from GB Bank — 2 operation(s) for transactions.
 
-- **Created:** 2026-07-23
-- **Modified:** 2026-07-23
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### GB Bank Open Data API
+#### Agentic access (1)
 
-UK Open Banking Open Data API (OBIE standard, v1.3) — the public, unauthenticated reference-data surface for ATMs, Branches, Personal Current Accounts, Business Current Accounts, Unsecured SME Loans and Commercial Credit Cards. Represented as the shared OBIE Open Data Standard; unverified for GB Bank (no live Open Data endpoint confirmed on a gbbank.co.uk host).
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Human URL:** [https://github.com/OpenBankingUK/opendata-api-docs-pub](https://github.com/OpenBankingUK/opendata-api-docs-pub)
+- [Gb Bank Agentic Access](https://apis.io/agentic-access/gb-bank/gb-bank-agentic-access/)
 
-#### Tags
+#### Collections (1)
 
-- Open Data
-- ATMs
-- Branches
-- Reference Data
-- Unauthenticated
+Postman and Open Collection request collections.
 
-#### Properties
+- [Open Data API](https://apis.io/collections/gb-bank/open-uk-open-banking-open-data-api/)
 
-- [OpenAPI](openapi/uk-open-banking-open-data-api-openapi.json) — shared OBIE Open Data Standard (Swagger 2.0)
-- [Documentation](https://github.com/OpenBankingUK/opendata-api-docs-pub)
-- [API Reference](https://github.com/OpenBankingUK/opendata-api-spec-compiled)
+#### Security (2)
 
-### GB Bank Account and Transaction Information API (AIS)
+Authentication, trust centre, and vulnerability disclosure.
 
-UK Open Banking Read/Write Account & Transaction Information API (AISP) — the OBIE standard for account, balance, transaction and statement data with customer consent. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA). Unverified for GB Bank.
+- [Gb Bank Authentication](https://apis.io/security/gb-bank/gb-bank-authentication/)
+- [Gb Bank Domain Security](https://apis.io/security/gb-bank/gb-bank-domain-security/)
 
-- **Human URL:** [https://github.com/OpenBankingUK/read-write-api-specs](https://github.com/OpenBankingUK/read-write-api-specs)
+#### OAuth scopes (1)
 
-#### Tags
+The permissions the API asks for.
 
-- Account Information
-- Transactions
-- AISP
-- FAPI
+- [Gb Bank Scopes](https://apis.io/scopes/gb-bank/gb-bank-scopes/)
 
-#### Properties
+## Where to find this API
 
-- [OpenAPI](openapi/uk-open-banking-account-info-api-openapi.yaml) — shared OBIE Read/Write Standard
-- [Documentation](https://standards.openbanking.org.uk/)
-- [API Reference](https://github.com/OpenBankingUK/read-write-api-specs)
-
-### GB Bank Payment Initiation API (PIS)
-
-UK Open Banking Read/Write Payment Initiation API (PISP) — the OBIE standard for initiating domestic, scheduled, standing-order, international and file payments with customer consent. FAPI-secured. Unverified for GB Bank.
-
-- **Human URL:** [https://github.com/OpenBankingUK/read-write-api-specs](https://github.com/OpenBankingUK/read-write-api-specs)
-
-#### Tags
-
-- Payment Initiation
-- Payments
-- PISP
-- FAPI
-
-#### Properties
-
-- [OpenAPI](openapi/uk-open-banking-payment-initiation-api-openapi.yaml) — shared OBIE Read/Write Standard
-- [Documentation](https://standards.openbanking.org.uk/)
-- [API Reference](https://github.com/OpenBankingUK/read-write-api-specs)
-
-### GB Bank Confirmation of Funds API (CBPII)
-
-UK Open Banking Read/Write Confirmation of Funds API (CBPII) — the OBIE standard for confirming whether funds are available on a payment account with customer consent. FAPI-secured. Unverified for GB Bank.
-
-- **Human URL:** [https://github.com/OpenBankingUK/read-write-api-specs](https://github.com/OpenBankingUK/read-write-api-specs)
-
-#### Tags
-
-- Confirmation of Funds
-- CBPII
-- FAPI
-
-#### Properties
-
-- [OpenAPI](openapi/uk-open-banking-confirmation-of-funds-api-openapi.yaml) — shared OBIE Read/Write Standard
-- [Documentation](https://standards.openbanking.org.uk/)
-- [API Reference](https://github.com/OpenBankingUK/read-write-api-specs)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.gbbank.co.uk/)
-- [Savings](https://www.gbbank.co.uk/savings)
-- [Mobile App](https://www.gbbank.co.uk/gb-bank-mobile-app)
 - [Support](https://www.gbbank.co.uk/help-and-support/faqs)
-- [Blog / News](https://www.gbbank.co.uk/news)
-- [Terms of Service](https://www.gbbank.co.uk/terms)
-- [Privacy Policy](https://www.gbbank.co.uk/privacy-policy)
-- [LinkedIn](https://www.linkedin.com/company/thegbb)
-- [UK Open Banking Open Data Standard](https://github.com/OpenBankingUK/opendata-api-spec-compiled)
-- [UK Open Banking Read/Write API Standard](https://standards.openbanking.org.uk/)
+- [Blog](https://www.gbbank.co.uk/news)
+- [Terms of service](https://www.gbbank.co.uk/terms)
+- [Privacy policy](https://www.gbbank.co.uk/privacy-policy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 33.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 46.9 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 21.1 |
+
+**Agent readiness 34.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | verified |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 44.1** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gb-bank/](https://apis.io/providers/gb-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GB Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gb-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
